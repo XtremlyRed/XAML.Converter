@@ -14,20 +14,3 @@ public class GreaterThanOrEqualConverter : CompareConverter
     public GreaterThanOrEqualConverter()
         : base(CompareMode.GreaterThanOrEqual) { }
 }
-
-/// <summary>
-/// a class of <see cref="GreaterThanOrEqualToVisitilityConverter"/>
-/// </summary>
-/// <seealso cref="GreaterThanOrEqualToVisitilityConverter" />
-public class GreaterThanOrEqualToVisitilityConverter : CompareConverter
-{
-    /// <summary>
-    /// create a new instance of <see cref="EqualConverter"/>
-    /// </summary>
-    public GreaterThanOrEqualToVisitilityConverter()
-        : base(CompareMode.GreaterThanOrEqual)
-    {
-        True = Visibility.Visible;
-        False = Visibility.Collapsed;
-    }
-}

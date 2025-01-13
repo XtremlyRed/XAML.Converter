@@ -10,6 +10,8 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>11</LangVersion>
+		<PackageId>XAML.Converter.Wpf</PackageId>
+		<Description>wpf converter </Description>
 	</PropertyGroup>
 
 	<Import Project="$(SolutionDir)\GlobalCompileSettings.Targets" />
