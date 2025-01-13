@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35617.110 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAML.Converter", "XAML.Converter\XAML.Converter.csproj", "{59B7AB72-EEDB-480F-B37F-83598F446656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solutions", ".solutions", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.csharpierrc.json = .csharpierrc.json
+		.gitignore = .gitignore
+		GlobalCompileSettings.Targets = GlobalCompileSettings.Targets
+		LICENSE = LICENSE
+		README.md = README.md
+		XAML.Converter.snk = XAML.Converter.snk
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59B7AB72-EEDB-480F-B37F-83598F446656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59B7AB72-EEDB-480F-B37F-83598F446656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59B7AB72-EEDB-480F-B37F-83598F446656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59B7AB72-EEDB-480F-B37F-83598F446656}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B5DF18F-D6EC-47BF-B8C4-6FD0C508928B}
+	EndGlobalSection
+EndGlobal

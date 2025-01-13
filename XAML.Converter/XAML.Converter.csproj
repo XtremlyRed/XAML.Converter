@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>
+			net4.6.2;
+			net6.0-windows;
+			net8.0-windows
+		</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<LangVersion>11</LangVersion>
+	</PropertyGroup>
+
+	<Import Project="$(SolutionDir)\GlobalCompileSettings.Targets" />
+
+</Project>
