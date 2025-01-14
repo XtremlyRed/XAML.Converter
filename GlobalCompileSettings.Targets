@@ -15,9 +15,10 @@
 
 	<PropertyGroup>
 
-		<PackageVersion>1.1.0</PackageVersion>
+		<PackageVersion>1.2.1</PackageVersion>
 		<AssemblyVersion>1.0</AssemblyVersion>
 		<LangVersion>12.0</LangVersion>
+		<Authors>xtremlyred</Authors>
 		<PackageProjectUrl>https://github.com/xtremlyred/XAML.Converter</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/xtremlyred/XAML.Converter</RepositoryUrl>
 	</PropertyGroup>

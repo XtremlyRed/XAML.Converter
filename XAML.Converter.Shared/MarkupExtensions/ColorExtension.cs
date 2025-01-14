@@ -1,14 +1,15 @@
-﻿using System.Windows.Markup;
-using System.Windows.Media;
-
-namespace XAML.Converter;
+﻿namespace XAML.Converter;
 
 /// <summary>
 /// a class of <see cref="ColorExtension"/>
 /// </summary>
-/// <seealso cref="MarkupExtension" />
-[MarkupExtensionReturnType(typeof(SolidColorBrush))]
-public class ColorExtension : MarkupExtension
+public class ColorExtension
+#if __WPF__ || __AVALONIA__
+    : MarkupExtension
+#elif __MAUI__
+    : IMarkupExtension
+#endif
+
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ColorExtension"/> class.
@@ -55,8 +56,13 @@ public class ColorExtension : MarkupExtension
     /// </summary>
     /// <param name="serviceProvider"></param>
     /// <returns></returns>
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public
+#if __WPF__ || __AVALONIA__
+    override
+#endif
+    object ProvideValue(IServiceProvider serviceProvider)
     {
+#if __WPF__
         return new Color()
         {
             A = A,
@@ -64,5 +70,12 @@ public class ColorExtension : MarkupExtension
             G = G,
             B = B,
         };
+#elif __AVALONIA__
+        return new Color(A, R, G, B);
+#elif __MAUI__
+        return new Color(R, G, B, A);
+#else
+        throw new NotSupportedException();
+#endif
     }
 }

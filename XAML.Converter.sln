@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35617.110 d17.13
+VisualStudioVersion = 17.13.35617.110
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAML.Converter", "XAML.Converter\XAML.Converter.csproj", "{59B7AB72-EEDB-480F-B37F-83598F446656}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solutions", ".solutions", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		.csharpierrc.json = .csharpierrc.json
@@ -15,21 +13,43 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solutions", ".solutions", 
 		XAML.Converter.snk = XAML.Converter.snk
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAML.Converter.Wpf", "XAML.Converter.Wpf\XAML.Converter.Wpf.csproj", "{D9D7E746-6371-4478-AC32-7CCD84BF4139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAML.Converter.MAUI", "XAML.Converter.MAUI\XAML.Converter.MAUI.csproj", "{7C78E8F8-AEB7-40E7-B837-35CB7BA37231}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAML.Converter.Avalonia", "XAML.Converter.Avalonia\XAML.Converter.Avalonia.csproj", "{A14DC878-CB9B-4A27-8FEF-11604D1DB008}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XAML.Converter.Shared", "XAML.Converter.Shared\XAML.Converter.Shared.shproj", "{1C86E815-309D-45E0-8299-9775B9DC69A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59B7AB72-EEDB-480F-B37F-83598F446656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59B7AB72-EEDB-480F-B37F-83598F446656}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59B7AB72-EEDB-480F-B37F-83598F446656}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59B7AB72-EEDB-480F-B37F-83598F446656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D7E746-6371-4478-AC32-7CCD84BF4139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D7E746-6371-4478-AC32-7CCD84BF4139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D7E746-6371-4478-AC32-7CCD84BF4139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D7E746-6371-4478-AC32-7CCD84BF4139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C78E8F8-AEB7-40E7-B837-35CB7BA37231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C78E8F8-AEB7-40E7-B837-35CB7BA37231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C78E8F8-AEB7-40E7-B837-35CB7BA37231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C78E8F8-AEB7-40E7-B837-35CB7BA37231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14DC878-CB9B-4A27-8FEF-11604D1DB008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14DC878-CB9B-4A27-8FEF-11604D1DB008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14DC878-CB9B-4A27-8FEF-11604D1DB008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14DC878-CB9B-4A27-8FEF-11604D1DB008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B5DF18F-D6EC-47BF-B8C4-6FD0C508928B}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XAML.Converter.Shared\XAML.Converter.Shared.projitems*{1c86e815-309d-45e0-8299-9775b9dc69a4}*SharedItemsImports = 13
+		XAML.Converter.Shared\XAML.Converter.Shared.projitems*{7c78e8f8-aeb7-40e7-b837-35cb7ba37231}*SharedItemsImports = 5
+		XAML.Converter.Shared\XAML.Converter.Shared.projitems*{a14dc878-cb9b-4a27-8fef-11604d1db008}*SharedItemsImports = 5
+		XAML.Converter.Shared\XAML.Converter.Shared.projitems*{d9d7e746-6371-4478-ac32-7ccd84bf4139}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

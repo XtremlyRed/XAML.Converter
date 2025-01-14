@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Markup;
 
 namespace XAML.Converter;
 
@@ -10,8 +8,14 @@ namespace XAML.Converter;
 /// a class of <see cref="ValueConverterBase{T,TP}"/>
 /// </summary>
 /// <seealso cref="IValueConverter" />
-[MarkupExtensionReturnType(typeof(IValueConverter))]
-public abstract class ValueConverterBase<Input, InputParameter> : MarkupExtension, IValueConverter
+public abstract partial class ValueConverterBase<Input, InputParameter> :
+#if __WPF__ || __AVALONIA__
+    MarkupExtension,
+#elif __MAUI__
+    IMarkupExtension,
+#endif
+
+        IValueConverter
 {
     /// <summary>
     /// Converts the specified value.
@@ -85,7 +89,12 @@ public abstract class ValueConverterBase<Input, InputParameter> : MarkupExtensio
     /// </summary>
     /// <param name="serviceProvider"></param>
     /// <returns></returns>
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public
+#if __WPF__ || __AVALONIA__
+    override
+#endif
+
+    object ProvideValue(IServiceProvider serviceProvider)
     {
         return this;
     }

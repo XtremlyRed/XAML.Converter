@@ -1,9 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-using System.Windows.Markup;
 
 namespace XAML.Converter;
 
@@ -13,7 +10,7 @@ namespace XAML.Converter;
 
 [ContentProperty(nameof(Converters))]
 [DefaultProperty(nameof(Converters))]
-public class CompositeConverter : ValueConverterBase<object>
+public partial class CompositeConverter : ValueConverterBase<object>
 {
     /// <summary>
     /// Gets or sets the converters.

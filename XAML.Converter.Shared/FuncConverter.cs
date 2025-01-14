@@ -1,6 +1,6 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
 
 namespace XAML.Converter;
 
@@ -9,7 +9,10 @@ namespace XAML.Converter;
 /// </summary>
 public class FuncConverter : IValueConverter
 {
+    [DebuggerBrowsable(Never)]
     private readonly Func<object, Type, object, CultureInfo, object>? converter1;
+
+    [DebuggerBrowsable(Never)]
     private readonly Func<object, Type, object, object>? converter2;
 
     /// <summary>
@@ -28,22 +31,29 @@ public class FuncConverter : IValueConverter
         this.converter2 = converter2;
     }
 
-    object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    object IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (converter1 is not null)
         {
-            return converter1(value, targetType, parameter, culture);
+            return converter1(value!, targetType, parameter!, culture);
         }
 
         if (converter2 is not null)
         {
-            return converter2(value, targetType, parameter);
+            return converter2(value!, targetType, parameter!);
         }
-
+#if __WPF__
         return DependencyProperty.UnsetValue;
+#elif __AVALONIA__
+        return AvaloniaProperty.UnsetValue;
+#elif __MAUI__
+        return BindableProperty.UnsetValue;
+#endif
+
+        throw new NotImplementedException();
     }
 
-    object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    object IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         throw new NotImplementedException();
     }

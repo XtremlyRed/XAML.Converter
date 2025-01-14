@@ -2,3 +2,8 @@
 /.vs/ProjectEvaluation 
 /XAML.Converter/obj
 /.vs/XAML.Converter
+/XAML.Converter.MAUI/bin/Debug
+/XAML.Converter.Avalonia/bin/Debug/net8.0
+/XAML.Converter.Avalonia/obj
+/XAML.Converter.MAUI/obj
+/XAML.Converter.Wpf/obj

@@ -2,14 +2,13 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
 
 namespace XAML.Converter;
 
 /// <summary>
 /// a class of <see cref="MediaConverter{From,To}"/>
 /// </summary>
-public abstract class MediaConverter<From, To> : DependencyObject, IValueConverter
+public abstract class MediaConverter<From, To> : IValueConverter
     where From : notnull
 {
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -18,16 +17,7 @@ public abstract class MediaConverter<From, To> : DependencyObject, IValueConvert
     /// <summary>
     /// null value
     /// </summary>
-    public object? Null
-    {
-        get => GetValue(NullProperty);
-        set => SetValue(NullProperty, value);
-    }
-
-    /// <summary>
-    /// The null property
-    /// </summary>
-    public static readonly DependencyProperty NullProperty = DependencyProperty.Register("Null", typeof(object), typeof(MediaConverter<From, To>), new PropertyMetadata(null));
+    public object? Null { get; set; }
 
     /// <summary>
     /// media convert

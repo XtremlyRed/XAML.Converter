@@ -12,7 +12,13 @@
 		<LangVersion>11</LangVersion>
 		<PackageId>XAML.Converter.Wpf</PackageId>
 		<Description>wpf converter </Description>
+
+		<DefineConstants>$(DefineConstants);__WPF__</DefineConstants>
+		
 	</PropertyGroup>
+
+ 
+	<Import Project="..\XAML.Converter.Shared\XAML.Converter.Shared.projitems" Label="Shared" />
 
 	<Import Project="$(SolutionDir)\GlobalCompileSettings.Targets" />
 

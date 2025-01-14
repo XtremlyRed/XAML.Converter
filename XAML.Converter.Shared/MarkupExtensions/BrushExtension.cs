@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Markup;
-using System.Windows.Media;
 
 namespace XAML.Converter;
 
 /// <summary>
 /// a class of <see cref="BrushExtension"/>
 /// </summary>
-/// <seealso cref="System.Windows.Markup.MarkupExtension" />
-[MarkupExtensionReturnType(typeof(SolidColorBrush))]
-public class BrushExtension : MarkupExtension
+public class BrushExtension
+#if __WPF__ || __AVALONIA__
+    : MarkupExtension
+#elif __MAUI__
+    : IMarkupExtension
+#endif
+
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="BrushExtension"/> class.
@@ -32,19 +34,32 @@ public class BrushExtension : MarkupExtension
     /// <summary>
     /// color.
     /// </summary>
-    public Color Color { get; set; }
+    public Color Color { get; set; } = default!;
 
+#if __WPF__ || __AVALONIA__
     /// <summary>
     /// opacity.
     /// </summary>
     public double Opacity { get; set; } = 1;
+#endif
 
     /// <summary>
     /// provide value
     /// </summary>
     /// <param name="serviceProvider"> </param>
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public
+#if __WPF__ || __AVALONIA__
+    override
+#endif
+
+    object ProvideValue(IServiceProvider serviceProvider)
     {
+#if __WPF__ || __AVALONIA__
         return new SolidColorBrush(Color) { Opacity = Opacity };
+#elif __MAUI__
+        return new SolidColorBrush(Color);
+#endif
+
+        throw new NotSupportedException();
     }
 }

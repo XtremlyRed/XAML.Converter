@@ -5,13 +5,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Markup;
 
 namespace XAML.Converter;
 
 /// <summary>
 /// a class of <see cref="CharExtension" />
 /// </summary>
+
+[ContentProperty(nameof(Value))]
 public class CharExtension : DataExtension<char>
 {
     /// <summary>
@@ -270,7 +271,13 @@ public class Int32Extension : DataExtension<int>
 
 [DefaultProperty(nameof(Value))]
 [ContentProperty(nameof(Value))]
-public abstract class DataExtension<T> : MarkupExtension
+public abstract partial class DataExtension<T>
+#if __WPF__ || __AVALONIA__
+    : MarkupExtension
+#elif __MAUI__
+    : IMarkupExtension
+#endif
+
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="DataExtension{T}"/> class.
@@ -283,7 +290,6 @@ public abstract class DataExtension<T> : MarkupExtension
     /// <value>
     /// The value.
     /// </value>
-    [ConstructorArgument(nameof(Value))]
     public T? Value { get; set; }
 
     /// <summary>
@@ -294,10 +300,6 @@ public abstract class DataExtension<T> : MarkupExtension
     {
         Value = value;
     }
-
-    /// <summary>
-    /// </summary>
-    public override object ProvideValue(IServiceProvider serviceProvider) => Value!;
 
     #region hide base function
 
@@ -333,4 +335,15 @@ public abstract class DataExtension<T> : MarkupExtension
     }
 
     #endregion
+
+
+
+    /// <summary>
+    /// </summary>
+    public
+#if __WPF__ || __AVALONIA__
+    override
+#endif
+
+    object ProvideValue(IServiceProvider serviceProvider) => Value!;
 }

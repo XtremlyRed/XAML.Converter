@@ -8,7 +8,6 @@ using System.Globalization;
 using System.Reflection;
 using System.Text;
 using System.Windows;
-using System.Windows.Data;
 
 namespace XAML.Converter;
 
@@ -75,7 +74,14 @@ public abstract class EnumConverter<TAttribute> : ValueConverterBase<object>
             return display;
         }
 
-        return Binding.DoNothing;
+#if __WPF__
+        return DependencyProperty.UnsetValue;
+#elif __AVALONIA__
+        return AvaloniaProperty.UnsetValue;
+#elif __MAUI__
+        return BindableProperty.UnsetValue;
+#endif
+        throw new NotImplementedException();
     }
 
     /// <summary>
